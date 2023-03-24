@@ -1,2 +1,2 @@
 # IA
-Repositorio del Curso FLP de la carrera ICCI UTA Arica-Chile
+Repositorio del Curso de Inteligencia Artificial de la carrera ICCI UTA Arica-Chile
