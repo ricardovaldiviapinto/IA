@@ -7,7 +7,8 @@ from kanren.constraints import neq
 from itertools import combinations, product
 
 
-#funciones posicionales
+# FUNCIONES POSICIONALES
+
 def left_of(l, p, q, n=1):
     return membero((p, q), list(zip(l, l[n:])))
 
@@ -24,23 +25,23 @@ def somewhat_right_of(l, p, q):
     return somewhat_left_of(l, q, p)
 
 
-# funciones differents
+# FUNCIONES DIFFERENTS
+
+# clean_var: verifica que cada componente en la lista de listas "p" no incluya variables no instanciadas 
 def clean_var(p):
     for i in p:
         for j in i:
             if isvar(j): return(False)
     return(True)
 
+# different: compara (neq) cada pareja en la lista "par" con sus correspondientes en la lista "l"
+# indexados por la pareja de indices del parámetro "idx"
 def different(l, par, idx):
-    lcache = tuple(tuple(r[i] for i in idx) for r in l)
+    return lall(neq(p, (r[idx[0]], r[idx[1]])) for p in par for r in l)
 
-    return lall(neq(p,c) for p in par for c in lcache)
-
+# differents: verifica que cada atributo en la lista de listas "d" corresponda a un sujeto diferente
 def differents(l, d):
     par = tuple(tuple(product(m, n)) for m, n in combinations(d, 2))
     idx = tuple(combinations((i for i in range(len(d))),2))
     
-    # limpia atributos no instanciados
-    lst = tuple((p, i) for p, i in zip(par, idx) if clean_var(p))
-
-    return lall(different(l, p, i) for p, i in lst)
+    return lall(different(l, p, i) for p, i in zip(par, idx) if clean_var(p))
