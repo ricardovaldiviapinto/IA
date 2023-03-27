@@ -9,7 +9,7 @@ prestamo3 = (15,var(),var())
 prestamo4 = (22,var(),var())
 prestamos = (prestamo1, prestamo2, prestamo3, prestamo4)
 
-# prestamo(nombre, libro)
+# prestamo(dia, nombre, libro)
 def borrowsproblem(prestamos):
     return lall(
     # 1. Ora's book was due on September 8.

@@ -13,7 +13,6 @@ animales = (animal1, animal2, animal3, animal4)
 def oceananimals(animales):
     return lall(
     # 1. The specimen found at 15,000 ft is either the bristlemouth or the specimen discovered in the Willis Trench.
-        #lxor((15000, 'bristlemouth', var()), (15000, var(), 'Willis Trench'), animal1),
         lany(eq((15000, 'bristlemouth', var()), animal1), eq((15000, var(), 'Willis Trench'), animal1)),
         neq((1500, 'bristlemouth', 'Willis Trench'), animal1),
 
