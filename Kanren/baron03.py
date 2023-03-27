@@ -12,7 +12,7 @@ jirafa3 = (12, var(), var())
 jirafa4 = (13, var(), var())
 jirafas = [jirafa1, jirafa2, jirafa3, jirafa4]
 
-# jirafas(nombre, pais)
+# jirafas(altura, nombre, pais)
 def giraffeproblem(jirafas):
     return lall(
         # 1. La jirafa Zakita es 1 pie más baja que la jirafa de Tanzania.

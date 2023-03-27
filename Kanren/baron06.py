@@ -42,9 +42,10 @@ def sondasproblem(sondas):
         lany(membero((var(), 'Worul', 'Vexatech', var()), sondas), membero((var(), 'Athios', 'Vexatech', var()), sondas)),
     
         # 8. El Athios no se lanzará en Mayo.
-        eq(('May', 'Athios', var(), var()), sonda5),
+        neq(('May', 'Athios'), (sonda5[0], sonda5[1])),
 
         # 10. datos no mencionados
+        membero((var(), 'Athios', var(), var()), sondas),
         membero((var(), 'Exatris', var(), var()), sondas),
         membero((var(), 'Gralax', var(), var()), sondas),
         membero((var(), var(), 'Permias', var()), sondas),
@@ -53,7 +54,8 @@ def sondasproblem(sondas):
     )
 
 solutions = run(0, sondas, sondasproblem(sondas),
+            
 # 9. Los cinco cohetes son el cohete desarrollado por Ubersplore, el cohete de Costa Rica, el cohete que se lanzará en Enero, el Exatris, y el cohete de Irán.
-                differents(sondas, (('January',), ('Exatris',), ('Ubersplore',), ('Costa Rica', 'Iran',))) 
+                differents(sondas, (('January',), ('Exatris',), ('Ubersplore',), ('Costa Rica', 'Iran',))),
             )
 print(solutions)
