@@ -72,13 +72,6 @@ def peopleproblem(planetas):
             # 10. El empleado que atendió a 100 pasajeros trabaja en la sección amarilla.
             eq((100, var(), var(), 'yellow'), empleado3),
 
-            # 11. Lyle no trabaja en la sección amarilla.
-            lall(neq(('Lyle', 'yellow'), (n, s)) for _, n, _,s in empleados),
-
-            # 12. Ni el trabajador que trabaja en la sección rosa ni el empleado que trabaja en la sección naranja es Lyle.
-            lall(neq(('Lyle', 'pink'), (n, s)) for _, n, _,s in empleados),
-            lall(neq(('Lyle', 'orange'), (n, s)) for _, n, _,s in empleados),
-
             # 13. El trabajador que trabaja en la sección amarilla atendió a menos visitantes que Sergio.
             somewhat_left_of(empleados, (var(), var(), var(), 'yellow'), (var(), 'Sergio', var(), var())),
 
@@ -92,6 +85,13 @@ def peopleproblem(planetas):
 
 start = perf_counter()
 solutions = run(0, empleados, peopleproblem(empleados),
+                # 11. Lyle no trabaja en la sección amarilla.
+                nmembero(empleados, ('Lyle', 'yellow'), (1,3)),           
+
+                # 12. Ni el trabajador que trabaja en la sección rosa ni el empleado que trabaja en la sección naranja es Lyle.
+                nmembero(empleados, ('Lyle', 'pink'), (1,3)), 
+                nmembero(empleados, ('Lyle', 'orange'), (1,3)),
+
                 # 14. Los siete empleados son la persona que dirige Speed ​​Devil, Herbert, 
                 # el empleado que trabaja en la sección amarilla, el empleado que atendió a 200 visitantes, 
                 # la persona que trabaja en la sección rosa, el empleado que trabaja en la sección azul y 

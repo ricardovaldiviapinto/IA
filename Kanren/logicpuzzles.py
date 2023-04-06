@@ -29,6 +29,12 @@ def somewhat_right_of(l, p, q):
     """somewhat_right_of es verdadero si p esta en algún lugar a la derecha de q en la lista l."""
     return somewhat_left_of(l, q, p)
 
+# FUNCION NMEMBERO 
+
+def nmembero(l, p, idx):
+    """nmembero es verdadero si p no es miembro (en particular considerando los atributos indexados por idx)
+       de la lista l."""
+    return lall(neq(p, tuple(r[i] for i in idx)) for r in l)
 
 # FUNCIONES DIFFERENTS
 
