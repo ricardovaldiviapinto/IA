@@ -3,6 +3,7 @@
 
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro objetos
 objeto1 = (250, var(), var())
@@ -30,5 +31,11 @@ def objectsproblem(objetos):
                 conde((membero((var(), 'cannonball', 'Dimmot Woods'), objetos), eq((475, var(), 'Front Beach'), objeto4)), ((membero((var(), 'cannonball', 'Front Beach'), objetos), eq((475, var(), 'Dimmot Woods'), objeto4)))),
         )
 
+start = perf_counter()
 solutions = run(0, objetos, objectsproblem(objetos))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

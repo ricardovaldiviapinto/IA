@@ -6,6 +6,7 @@
 # con su cohete y país de origen y determinar el mes en que se lanzará su sonda.
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cinco sondas
 sonda1 = ('January', var(), var(), var())
@@ -53,9 +54,15 @@ def sondasproblem(sondas):
         membero((var(), var(), var(), 'Rusia'), sondas)
     )
 
+start = perf_counter()
 solutions = run(0, sondas, sondasproblem(sondas),
             
 # 9. Los cinco cohetes son el cohete desarrollado por Ubersplore, el cohete de Costa Rica, el cohete que se lanzará en Enero, el Exatris, y el cohete de Irán.
                 differents(sondas, (('January',), ('Exatris',), ('Ubersplore',), ('Costa Rica', 'Iran',))),
             )
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

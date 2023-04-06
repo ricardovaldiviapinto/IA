@@ -6,6 +6,7 @@
 # de cada avión, así como el nombre del avión y el nombre de la compañía que lo construyó.
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro aviones
 avion1 = ('100M', var(), var())
@@ -34,6 +35,12 @@ def planesproblem(aviones):
         membero((var(), var(), 'Pittakan'), aviones)
     )
 
+start = perf_counter()
 solutions = run(0, aviones, planesproblem(aviones))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)
 

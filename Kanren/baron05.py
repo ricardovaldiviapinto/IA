@@ -3,6 +3,7 @@
 # and determining its page-count and number of copies sold last week.
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro copias
 copies1 = (12, var(), var())
@@ -35,5 +36,11 @@ def booksproblem(books):
         membero((var(), var(), 'Two for Tennis'), books)
         )
 
+start = perf_counter()
 solutions = run(0, books, booksproblem(books))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

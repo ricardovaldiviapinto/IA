@@ -5,6 +5,7 @@
 # con el período apropiado y determine el maestro y el número de salón de cada uno
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro posibles salas
 sala1 = (1, var(), var()) 
@@ -32,9 +33,15 @@ def roomsproblem(salas):
         membero((var(), 412, var()), salas)
         )
 
+start = perf_counter()
 solutions = run(0, salas, roomsproblem(salas),
 
 #3. Las cuatro clases son la clase del salón 322, la clase del tercer período, la clase del segundo período y la clase del Sr. Underwood.
             differents(salas, ((2,3), (322,), ('Underwood',)))
     )
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

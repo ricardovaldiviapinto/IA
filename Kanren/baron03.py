@@ -4,13 +4,14 @@
 # que se encuentra actualmente en la reserva.
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro jirafas
 jirafa1 = (10, var(), var())
 jirafa2 = (11, var(), var())
 jirafa3 = (12, var(), var())
 jirafa4 = (13, var(), var())
-jirafas = [jirafa1, jirafa2, jirafa3, jirafa4]
+jirafas = (jirafa1, jirafa2, jirafa3, jirafa4)
 
 # jirafas(altura, nombre, pais)
 def giraffeproblem(jirafas):
@@ -34,5 +35,11 @@ def giraffeproblem(jirafas):
         membero((var(), var(), 'Botswana'), jirafas)
         )
 
+start = perf_counter()
 solutions = run(0, jirafas, giraffeproblem(jirafas))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

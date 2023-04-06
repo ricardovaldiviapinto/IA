@@ -3,6 +3,7 @@
 
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro anuncios
 anuncio1 = (625, var(), var())
@@ -34,5 +35,11 @@ def adproblem(anuncios):
         membero((var(), var(), 'web campaign'), anuncios)
     )
 
+start = perf_counter()
 solutions = run(0, anuncios, adproblem(anuncios))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

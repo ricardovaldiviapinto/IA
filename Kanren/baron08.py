@@ -7,6 +7,7 @@
 # intención de llevar cada uno.
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro aerófobos
 aerofobo1 = ('January', var(), var())
@@ -38,8 +39,14 @@ def flyersproblem(aerofobos):
         membero((var(), var(), 'Espoleta'), aerofobos)
     )
 
+start = perf_counter()
 solutions = run(0, aerofobos, flyersproblem(aerofobos),
 #2. Los cuatro voladores son; el aerófobo que se va en enero, Troy, Katie y el pasajero con la pata de conejo
                 differents(aerofobos, (('January',), ('Troy', 'Katie',), ('Pata de Conejo',)))
     )
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

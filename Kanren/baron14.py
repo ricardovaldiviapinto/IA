@@ -3,6 +3,7 @@
 
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro objetos
 planeta1 = (41, var(), var())
@@ -31,5 +32,11 @@ def planetsproblem(planetas):
             membero((var(), var(),'PLC 120'), planetas),
             )
 
+start = perf_counter()
 solutions = run(0, planetas, planetsproblem(planetas))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

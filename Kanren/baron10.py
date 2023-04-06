@@ -3,6 +3,7 @@
 
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro monitos
 monito1 = (4, var(), var())
@@ -35,5 +36,11 @@ def monkeyproblem(monitos):
         membero((var(), var(), 'Aldo'), monitos)
     )
 
+start = perf_counter()
 solutions = run(0,monitos,monkeyproblem(monitos))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

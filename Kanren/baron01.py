@@ -1,6 +1,7 @@
 # https://logic.puzzlebaron.com
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro prestamos
 prestamo1 = ( 1,var(),var())
@@ -29,5 +30,11 @@ def borrowsproblem(prestamos):
     membero((var(), var(), 'stars bellow'), prestamos)
     )
 
+start = perf_counter()
 solutions = run(0, prestamos, borrowsproblem(prestamos))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

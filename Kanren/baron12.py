@@ -3,6 +3,7 @@
 
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro podcast
 podcast1 = ('1 million', var(), var())
@@ -35,5 +36,11 @@ def podcastproblem(podcasts):
         membero((var(), var(), 2010), podcasts),
         )
 
+start = perf_counter()
 solutions = run(0, podcasts, podcastproblem(podcasts))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

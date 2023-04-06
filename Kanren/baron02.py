@@ -1,6 +1,7 @@
 # https://logic.puzzlebaron.com/play.php?u2=8acf8fd20e0aad8567638347a3555df9
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro animales
 animal1 = (15000, var(), var())
@@ -33,5 +34,11 @@ def oceananimals(animales):
         membero((var(), var(),'Malinga Trench'), animales)
         )
 
+start = perf_counter()
 solutions = run(0, animales, oceananimals(animales))
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)

@@ -8,6 +8,7 @@
 # cada pieza de valor.
 
 from logicpuzzles import *
+from time import perf_counter
 
 # Hay cuatro pinturas
 
@@ -42,8 +43,14 @@ def paintsproblem(pinturas):
         membero((var(), var(), var(), 10), pinturas)
     )
 
+start = perf_counter()
 solutions = run(0, pinturas, paintsproblem(pinturas),
 #5- La pintura de Fuji Fukiro, la pintura de 1905 y la pintura que ha estado desaparecida durante 13 años son tres pinturas diferentes.
             differents(pinturas, ((1905,), (var(),), ('Fuji Fukiro',), (13,)))
     )
+end = perf_counter()
+
 print(solutions)
+
+execution_time = (end - start)
+print(execution_time)
