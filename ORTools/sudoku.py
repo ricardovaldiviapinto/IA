@@ -35,7 +35,7 @@ def solve_sudoku(grid):
     # variables
     raw_mtrx = [[model.NewIntVar(grid[i][j], grid[i][j], 'x({},{})'.format(i, j))
                  if grid[i][j] else model.NewIntVar(1, 9, 'x({},{})'.format(i, j))
-                 for i in range(9)] for j in range(9)]
+                 for j in range(9)] for i in range(9)]
 
     np_mtrx = np.array(raw_mtrx)
     

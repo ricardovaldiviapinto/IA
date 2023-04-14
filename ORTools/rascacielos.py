@@ -43,7 +43,7 @@ def skyscrapers(n, lf, lfi, lc, lci, grid = None, limit=1):
     # variables
     raw_mtrx = [[model.NewIntVar(grid[i][j], grid[i][j], 'x({},{})'.format(i, j))
                  if grid[i][j] else model.NewIntVar(1, n, 'x({},{})'.format(i, j))
-                 for i in range(n)] for j in range(n)]
+                 for j in range(n)] for i in range(n)]
 
     # constraints
   
@@ -115,7 +115,7 @@ def rascacielos(model,row,n):
 
     return(sum(visibles))
 
-#skyscrapers(4,[0,2,0,3],[0,1,3,0],[0,1,2,0],[0,0,1,0])
+skyscrapers(4,[0,2,0,3],[0,1,3,0],[0,1,2,0],[0,0,1,0])
 #skyscrapers(4,[3,2,1,2],[1,3,2,2],[2,2,3,1],[2,2,1,3])
 #skyscrapers(4,[0,4,0,0],[0,0,0,0],[2,3,0,0],[0,0,0,0])
 #skyscrapers(4,[0,0,0,0],[0,1,0,0],[0,0,2,0],[0,2,0,0], src.sample1)
@@ -125,4 +125,4 @@ def rascacielos(model,row,n):
 #skyscrapers(6,[3,2,1,3,3,2],[2,3,2,1,2,2],[2,2,5,2,1,4],[2,3,1,2,6,3], src.sample3)
 #skyscrapers(6,[0,0,0,6,4,0],[0,0,0,0,0,0],[0,3,3,0,0,0],[5,0,3,0,0,3])
 #skyscrapers(6,[0,3,0,2,0,2],[3,0,0,1,3,0],[0,1,0,3,0,2],[0,0,3,0,3,0], src.sample4)
-skyscrapers(7,[0,0,1,3,0,0,0],[0,2,0,2,0,3,5],[2,2,0,0,3,0,0],[0,0,0,0,0,5,0], src.sample5)
+#skyscrapers(7,[0,0,1,3,0,0,0],[0,2,0,2,0,3,5],[2,2,0,0,3,0,0],[0,0,0,0,0,5,0], src.sample5)
