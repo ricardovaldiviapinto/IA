@@ -48,13 +48,7 @@ def magic(n=3, limit=1):
     model = cp.CpModel()
 
     # variables
-    raw_mtrx = []
-    for i in range(n):
-      row = []
-      for j in range(n):
-        row.append(model.NewIntVar(1, n*n, 'x({},{})'.format(i, j)))
-      raw_mtrx.append(row) 
-
+    raw_mtrx = [[model.NewIntVar(1, n*n, 'x({},{})'.format(i, j)) for i in range(n)] for j in range(n)]
     np_mtrx = np.array(raw_mtrx)
 
     # magic sum

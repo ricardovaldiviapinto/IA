@@ -33,17 +33,10 @@ def solve_sudoku(grid):
     model = cp.CpModel()
 
     # variables
-    raw_mtrx = []
-    for i in range(9):
-        row = []
-        for j in range(9):
-            if grid[i][j]:
-                val = int(grid[i][j])
-                row.append(model.NewIntVar(val, val, 'x({},{})'.format(i, j)))
-            else:
-                row.append(model.NewIntVar(1, 9, 'x({},{})'.format(i, j)))
-        raw_mtrx.append(row) 
-    
+    raw_mtrx = [[model.NewIntVar(grid[i][j], grid[i][j], 'x({},{})'.format(i, j))
+                 if grid[i][j] else model.NewIntVar(1, 9, 'x({},{})'.format(i, j))
+                 for i in range(9)] for j in range(9)]
+
     np_mtrx = np.array(raw_mtrx)
     
     # constraints

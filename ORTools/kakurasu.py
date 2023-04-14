@@ -3,7 +3,6 @@
 """
   kakurasu
 """
-from __future__ import print_function
 from ortools.sat.python import cp_model as cp
 import numpy as np
 
@@ -38,12 +37,7 @@ def kakurasu(n, lf, lc, limit=1):
     model = cp.CpModel()
 
     # variables
-    raw_mtrx = []
-    for i in range(n):
-      row = []
-      for j in range(n):
-        row.append(model.NewIntVar(0, 1, 'x({},{})'.format(i, j)))
-      raw_mtrx.append(row) 
+    raw_mtrx = [[model.NewBoolVar('x({},{})'.format(i, j)) for i in range(n)] for j in range(n)]
 
     np_mtrx = np.array(raw_mtrx)
 
